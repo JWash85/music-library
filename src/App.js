@@ -3,6 +3,8 @@ import './App.css';
 import { useEffect, useState } from 'react'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
+import { DataContext } from './context/DataContext'
+
 
 
 const App = () => {
@@ -37,7 +39,9 @@ const App = () => {
       <div>
           <SearchBar handleSearch={handleSearch} />
           {message}
-          <Gallery data={data} />
+          <DataContext.Provider value={data} >
+          <Gallery /*data={data}*/ />
+          </DataContext.Provider>
       </div>
   )
 }
