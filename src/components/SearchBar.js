@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useContext } from 'react'
+import { SearchContext } from '../context/SearchContext'
 
 function SearchBar(props){
     // We can comment out our searchTerm state variable as we are not using it!
