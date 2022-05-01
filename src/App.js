@@ -1,15 +1,11 @@
-//import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState, Suspense } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
 import AlbumView from './components/AlbumView'
 import ArtistView from './components/ArtistView'
 import {Fragment, default as React} from 'react' //maybe temp fix and have to delete later
-import { createResource as fetchData } from './helper'
-
-
 
 function App() {
     let [search, setSearch] = useState('')
@@ -34,21 +30,10 @@ function App() {
         }
     }, [search])
     
-    
     const handleSearch = (e, term) => {
         e.preventDefault()
         setSearch(term)
     }
-    const renderGallery = () => {
-        if(data){
-            return (
-                <Suspense fallback={<h1>Loading...</h1>} >
-                    <Gallery data={data} />
-                </Suspense>
-            )
-        }
-    }
-    
 
     return (
         <div>
@@ -56,6 +41,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={
+                        //Fragments are used to place more than one component into an element.
                         <Fragment>
                             <SearchBar handleSearch = {handleSearch}/>
                             <Gallery data={data} />
@@ -67,11 +53,12 @@ function App() {
             </Router>
         </div>
     )
- 
     
 }
 
 export default App;
+
+
 
 
 
