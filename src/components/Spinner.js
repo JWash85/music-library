@@ -1,4 +1,4 @@
-import loading_spinner from '../loading_spinner.gif'
+/*import loading_spinner from '../loading_spinner.gif'
 
 const Spinner = () => {
     return (
@@ -8,4 +8,4 @@ const Spinner = () => {
     )
 }
 
-export default Spinner
+export default Spinner*/
